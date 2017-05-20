@@ -3,8 +3,8 @@
 
 :root{ font-size: 62.5%; }
 $base: #f0f0f0;
-$main: #666;
-$acce: #c33;
+$main: #223;
+$acce: #FFC000;
 
 $mobile: 768px;
 $tablet: 1250px;
@@ -20,34 +20,128 @@ $tablet: 1250px;
 html{ background: $base; }
 body{
     text-align: center;
-    font: 1.6rem/1.7 "游ゴシック","Yu Gothic",YuGothic,"ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic ProN","ヒラギノ角ゴ ProN",Meiryo,"メイリオ",Helvetica,Arial,Sans-Serif;
+    font: 1.2rem/1.7 "游ゴシック","Yu Gothic",YuGothic,"ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic ProN","ヒラギノ角ゴ ProN",Meiryo,"メイリオ",Helvetica,Arial,Sans-Serif;
     font-weight: 500;
     font-feature-settings : "pwid";
     background: $base;
 }
-*:hover{ transition: .3s ease; }
+*:hover{ transition: .2s ease; }
+
+
+////////////////////////////////////////////////////////////////
+// FORM
+////////////////////////////////////////////////////////////////
+#form{
+    width: 55em;
+    max-width: 90%;
+    margin: 4rem auto 0;
+}
+#form textarea{
+    resize: none;
+    display: block;
+    background-color: #fff;
+    outline: none;
+    border: 0;
+    border-radius: .2rem;
+    height: 10rem;
+    width: 100%;
+    padding: 1rem 1.5rem;
+}
+#form ul{
+    counter-reset: key;
+    list-style: none;
+    padding: 0;
+}
+#form button{
+    display: block;
+    outline: none;
+    width: 100%;
+    height: 4rem;
+    margin: 1rem auto 0;
+    cursor: pointer;
+    border: 0;
+    border-radius: .2rem;
+    background-color: #fff;
+    color: $main;
+    opacity: .7;
+    position: relative;
+    &:hover{
+        transform: scale(1.01);
+        opacity: .9;
+        box-shadow: 0 .1rem .4rem rgba(#000, 0.1);
+    }
+    &:active{
+        transform: scale(0.99);
+        opacity: .6;
+        box-shadow: 0 .1rem .4rem rgba(#000, 0.1) inset;
+        transition-duration: 0.1s;
+    }
+}
+#form button img{
+    position: absolute;
+    height: 1.8rem; width: 1.8rem;
+    left: 1rem;
+    top: 1.1rem;
+    vertical-align: bottom;
+}
+// 1~9番目のボタンまでショートカットを表示
+#form li:nth-child(-n+9) button:after{
+    background-color: rgba(#000,.1);
+    height: 2rem;
+    padding: 0 .5rem;
+    border-radius: .2rem;
+    counter-increment: key;
+    content:"alt + "counter(key);
+    position: absolute;
+    right: 1rem;
+}
+
+
+////////////////////////////////////////////////////////////////
+// Footer
+////////////////////////////////////////////////////////////////
+footer{
+    background-color: $main;
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    height: 18rem;
+}
 
 #clock{
-    position: fixed;
-    bottom: 20px;
-    right: 0; left:0;
     color: #ccc;
-    line-height: 1.4;
+    font: 2.6rem/1.7 "Trebuchet Ms",Sans-Serif;
+    font-weight: bold;
     .time{
-        letter-spacing: .1em;
-        font-size: 26px;
-        span{ font-weight: bold }
+        letter-spacing: .3em;
+        margin-left: .3em;
     }
     .date{
-        font-size: 17px;
+        font-size: 1.7rem;
     }
 }
 
-@include max($tablet) {
-    :root{ font-size: 45%; }
-    .wrap{ width: 90% }
+.github{
+    position: fixed;
+    bottom: 0; right: 1.8rem;
+    opacity: .8;
+    img{
+        wdith: 5rem;
+        height: 5rem;
+    }
+    &:hover img{
+        transform: scale(1.1);
+    }
 }
-@include max($mobile) {
-    :root{ font-size: 30%; }
-    .wrap{ width: 95% }
-}
+
+////////////////////////////////////////////////////////////////
+// responsive
+////////////////////////////////////////////////////////////////
+// @include max($tablet) {
+//     :root{ font-size: 45%; }
+//     .wrap{ width: 90% }
+// }
+// @include max($mobile) {
+//     :root{ font-size: 30%; }
+//     .wrap{ width: 95% }
+// }

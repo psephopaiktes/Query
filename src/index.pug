@@ -1,8 +1,8 @@
 doctype html
-html(lang='ja')
+html(lang='en')
 
     head
-        title 新しいタブ
+        title Query
         meta(charset='utf-8')
         meta(name='viewport', content='width=device-width, initial-scale=1')
         link(rel='stylesheet', href='styles/main.min.css')
@@ -11,23 +11,28 @@ html(lang='ja')
     body
 
         #form
-            textarea(rows='8', cols='80', autofocus='')
-            br
-            button(url='https://www.google.co.jp/search?q=%s') Google検索
-            button(url='https://translate.google.co.jp/?#auto/ja/%s') 日本語に翻訳
-            button(url='https://translate.google.co.jp/?#auto/en/%s') 英語に翻訳
-            button(url='http://video.unext.jp/freeword?query=%s') U-NEXTを検索
-            button(url='https://www.netflix.com/search?q=%s') Netflixを検索
-            button(url='https://www.amazon.co.jp/s/?url=search-alias%3Dinstant-video&field-keywords=%s') Amazonビデオを検索
-            button(url='https://www.happyon.jp/search?q=%s') Huluを検索
-            button(url='http://www.google.com/search?hl=ja&q=%s&btnI=I%27m+Feeling+Lucky') feeling lucky
-            button(url='https://www.google.co.jp/search?q=%s&tbm=isch') 画像検索
-            button(url='https://www.google.com/search?q=%s&hl=en') Google En
-            button(url='https://www.google.co.jp/maps/search/%s')    maps
-            button(url='https://twitter.com/search?s=follows&vertical=default&q=%s&src=typd') フォロー検索
+            textarea(autofocus='autofocus',placeholder='input query')
+            ul
+                li: button(url='https://www.google.com/search?q=%s') Google Search
+                li: button(url='https://translate.google.com/?#auto/ja/%s') Translate Japanese
+                li: button(url='https://translate.google.com/?#auto/en/%s') Translate English
+                li: button(url='http://video.unext.jp/freeword?query=%s') Search in U-NEXT
+                li: button(url='https://www.netflix.com/search?q=%s') Search in Netflix
+                li: button(url='https://www.amazon.co.jp/s/?url=search-alias%3Dinstant-video&field-keywords=%s') Search in Amazon Video
+                li: button(url='https://www.happyon.jp/search?q=%s') Search in Happyon
+                li: button(url='http://www.google.com/search?hl=ja&q=%s&btnI=I%27m+Feeling+Lucky') I'm Feeling Lucky
+                li: button(url='https://www.google.com/search?q=%s&tbm=isch') Google Image Search
+                //- li: button(url='https://www.google.com/search?q=%s&hl=en') Google En
+                //- li: button(url='https://www.google.co.jp/maps/search/%s') maps
+                //- li: button(url='https://twitter.com/search?s=follows&vertical=default&q=%s&src=typd') フォロー検索
 
-        #clock
-            p.time
-            p.date
+
+
+        footer
+            #clock
+                    p.time
+                    p.date
+            a(class='github', href='https://github.com/psephopaiktes/Query', target='brank_')
+                img(src='images/github.svg')
 
         script(src='scripts/main.min.js')

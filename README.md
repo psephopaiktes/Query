@@ -1,2 +1,2 @@
 # myTemplate
-新しくWebサイトを作るときの自分用テンプレート
+* This is Chrome Extension.
