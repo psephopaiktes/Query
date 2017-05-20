@@ -3,7 +3,7 @@
 // FORM
 ////////////////////////////////////////////////////////////////
 // show favicon
-$('#form button').each(function(){
+$('#form ul button').each(function(){
     var domain = $(this).attr('url').match(/^(.*?:\/\/)(.*?)([a-z0-9][a-z0-9\-]{1,63}\.[a-z\.]{2,6})[\:[0-9]*]?([\/].*?)?$/i);
     console.log(domain);
     domain = domain[2]+domain[3];
@@ -17,14 +17,24 @@ $('#form button').on('click',function(){
     var url =$(this).attr('url').replace(/%s/g, q);
     location.href= url;
 });
+// Web Speech API
+window.SpeechRecognition = window.SpeechRecognition || webkitSpeechRecognition;
+var rec = new webkitSpeechRecognition();
+rec.lang = 'ja';
+function record(){ rec.start(); }
+rec.addEventListener('result', function(event){
+    $("#form textarea").val(event.results.item(0).item(0).transcript);
+}, false);
+
 // Short Cut Key
 $(window).keydown(function(e){
     if(event.altKey){
-        $('#form textarea').blur();
-        //altキーが押されたらフォーカスを外す
-        if( 48 <= e.keyCode && e.keyCode <= 57 ){
+        $('#form textarea').blur(); //altキーが押されたらフォーカスを外す
+        if( 49 <= e.keyCode && e.keyCode <= 57 ){
             var key = event.keyCode - 49;
             $('#form button:eq('+key+')').click();
+        }else if(e.keyCode == 48){
+            record();
         }
     }else if(e.keyCode === 13){
         $('#form button:eq(0)').click();
@@ -35,6 +45,10 @@ $(window).keyup(function(e){
         $('#form textarea').focus();
         //altキーが離されたらフォーカスを戻す
 });
+
+
+
+
 ////////////////////////////////////////////////////////////////
 // footer
 ////////////////////////////////////////////////////////////////

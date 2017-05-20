@@ -1,2 +1,2 @@
-# myTemplate
-* This is Chrome Extension.
+# Query
+* Beta
