@@ -9,22 +9,44 @@ $('#form ul button').each(function(){
     domain = domain[2]+domain[3];
     if(domain=='www.google.co.jp' || domain=='www.google.com')
         domain = 'google.com';
-    $(this).prepend('<img src="http://www.google.com/s2/favicons?domain='+domain+'">');
+    $(this).prepend('<img src="http://www.google.com/s2/favicons?domain='+domain+'">'); // Google API
+    // $(this).prepend('<img src="http://favicon.hatena.ne.jp/?url='+domain+'">'); // Hatena API
 });
+
 // start search
-$('#form button').on('click',function(){
+$('#form ul button').on('click',function(){
     var q = $('#form textarea').val();
     var url =$(this).attr('url').replace(/%s/g, q);
     location.href= url;
 });
+
 // Web Speech API
 window.SpeechRecognition = window.SpeechRecognition || webkitSpeechRecognition;
-var rec = new webkitSpeechRecognition();
-rec.lang = 'ja';
-function record(){ rec.start(); }
-rec.addEventListener('result', function(event){
-    $("#form textarea").val(event.results.item(0).item(0).transcript);
-}, false);
+var recognition = new webkitSpeechRecognition();
+recognition.lang = 'ja';
+recognition.interimResults = true;
+// 開始
+$('#form .rec').on('click',function(){ recognition.start() });
+// 入力中の処理
+recognition.onsoundstart = function(){
+    $('#form .rec').html('<i class="material-icons inputting">mic_none</i>')
+};
+recognition.onnomatch = function(){ $('#form .rec').html('try again') };
+recognition.onerror= function(){ $('#form .rec').html('error') };
+recognition.onsoundend = function(){
+    $('#form .rec').html('<i class="material-icons">mic</i>')
+};
+// 入力処理
+recognition.onresult = function(event){
+    var results = event.results;
+    for (var i = event.resultIndex; i<results.length; i++){
+        if(results[i].isFinal)
+            $('#form textarea').text(results[i][0].transcript);
+        else
+            $('#form textarea').text(results[i][0].transcript)
+    }
+};
+
 
 // Short Cut Key
 $(window).keydown(function(e){
@@ -32,12 +54,12 @@ $(window).keydown(function(e){
         $('#form textarea').blur(); //altキーが押されたらフォーカスを外す
         if( 49 <= e.keyCode && e.keyCode <= 57 ){
             var key = event.keyCode - 49;
-            $('#form button:eq('+key+')').click();
+            $('#form ul button:eq('+key+')').click();
         }else if(e.keyCode == 48){
             record();
         }
     }else if(e.keyCode === 13){
-        $('#form button:eq(0)').click();
+        $('#form ul button:eq(0)').click();
     }
 });
 $(window).keyup(function(e){

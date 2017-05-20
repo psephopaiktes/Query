@@ -11,9 +11,10 @@ html(lang='en')
 
     body
 
+
         #form
-            textarea(autofocus='autofocus',placeholder='input query')
-            button(class='rec',onClick='record()'): i(class='material-icons') mic
+            textarea(autofocus='autofocus',placeholder='input Query')
+            button(class='rec',onClick="record()"): i(class='material-icons') mic
             ul
                 li: button(url='https://www.google.com/search?q=%s') Google Search
                 li: button(url='https://translate.google.com/?#auto/ja/%s') Translate Japanese
@@ -23,12 +24,17 @@ html(lang='en')
                 li: button(url='https://www.amazon.co.jp/s/?url=search-alias%3Dinstant-video&field-keywords=%s') Search in Amazon Video
                 li: button(url='https://www.happyon.jp/search?q=%s') Search in Happyon
                 li: button(url='http://www.google.com/search?hl=ja&q=%s&btnI=I%27m+Feeling+Lucky') I'm Feeling Lucky
+                li: button(url='https://ja.wikipedia.org/w/?search=%s') Search in Wikipedia
                 li: button(url='https://twitter.com/search?s=follows&vertical=default&q=%s&src=typd') Search Tweets only Your Follows
                 li: button(url='https://www.google.com/search?q=%s&tbm=isch') Google Image Search
                 li: button(url='https://www.google.com/search?q=%s&hl=en') Google Search in English
                 li: button(url='https://www.google.co.jp/maps/search/%s') Search in Google Maps
                 li: button(url='http://www.nicovideo.jp/search/%s') Search in NicoNico
                 li: button(url='https://www.youtube.com/results?search_query=%s') Search in YouTube
+                li: button(url='https://www.amazon.co.jp/s/?field-keywords=%s') Search in Amazon
+                li: button(url='https://movies.yahoo.co.jp/search/?query=%s') Search in Yahoo！ Movie
+                li: button(url='https://www.tumblr.com/search/%s') Search in Tumblr
+                li: button(url='https://www.pixiv.net/search.php?word=%s') Search in Pixiv
 
 
 

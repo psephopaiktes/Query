@@ -121,6 +121,9 @@ body{
     i{
         line-height: 3.2rem;
     }
+    i.inputting{
+        color: $acce
+    }
 }
 // 1~9番目のボタンまでショートカットを表示
 #form li:nth-child(-n+9) button:after, #form .rec:after{
@@ -174,13 +177,14 @@ footer{
 .github{
     position: fixed;
     bottom: 0; right: 1.8rem;
-    opacity: .8;
     img{
-        wdith: 5rem;
-        height: 5rem;
+        wdith: 4rem;
+        height: 4rem;
+        opacity: .6;
     }
     &:hover img{
         transform: scale(1.1);
+        opacity: 1;
     }
 }
 
