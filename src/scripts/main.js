@@ -8,9 +8,8 @@ $('#form ul button').each(function(){
     console.log(domain);
     domain = domain[2]+domain[3];
     if(domain=='www.google.co.jp' || domain=='www.google.com')
-        domain = 'google.com';
-    $(this).prepend('<img src="http://www.google.com/s2/favicons?domain='+domain+'">'); // Google API
-    // $(this).prepend('<img src="http://favicon.hatena.ne.jp/?url='+domain+'">'); // Hatena API
+        domain = 'www.google.com';
+    $(this).prepend('<img src="http://www.google.com/s2/favicons?domain='+domain+'">');
 });
 
 // start search
@@ -25,16 +24,19 @@ window.SpeechRecognition = window.SpeechRecognition || webkitSpeechRecognition;
 var recognition = new webkitSpeechRecognition();
 recognition.lang = 'ja';
 recognition.interimResults = true;
-// 開始
-$('#form .rec').on('click',function(){ recognition.start() });
+// 開始用関数
+function record(){
+    recognition.start();
+    $('#form .rec').html('<i class="material-icons">mic</i>')
+}
 // 入力中の処理
 recognition.onsoundstart = function(){
-    $('#form .rec').html('<i class="material-icons inputting">mic_none</i>')
+    $('#form .rec').html('<i class="material-icons inputting">mic</i>')
 };
 recognition.onnomatch = function(){ $('#form .rec').html('try again') };
 recognition.onerror= function(){ $('#form .rec').html('error') };
 recognition.onsoundend = function(){
-    $('#form .rec').html('<i class="material-icons">mic</i>')
+    $('#form .rec').html('<i class="material-icons">mic_none</i>')
 };
 // 入力処理
 recognition.onresult = function(event){

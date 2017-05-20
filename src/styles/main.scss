@@ -82,13 +82,13 @@ body{
     opacity: .7;
     position: relative;
     &:hover{
-        transform: scale(1.01);
+        transform:translateY(-.1rem);
         opacity: .9;
         box-shadow: 0 .1rem .4rem rgba(#000, 0.1);
     }
     &:active{
-        transform: scale(0.99);
-        opacity: .6;
+        transform:translateY(.05rem);
+        opacity: .8;
         box-shadow: 0 .1rem .4rem rgba(#000, 0.1) inset;
         transition-duration: 0.1s;
     }
