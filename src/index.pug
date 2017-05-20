@@ -1,0 +1,33 @@
+doctype html
+html(lang='ja')
+
+    head
+        title 新しいタブ
+        meta(charset='utf-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        link(rel='stylesheet', href='styles/main.min.css')
+        link(rel='shortcut icon', href='images/favicon.ico')
+
+    body
+
+        #form
+            textarea(rows='8', cols='80', autofocus='')
+            br
+            button(url='https://www.google.co.jp/search?q=%s') Google検索
+            button(url='https://translate.google.co.jp/?#auto/ja/%s') 日本語に翻訳
+            button(url='https://translate.google.co.jp/?#auto/en/%s') 英語に翻訳
+            button(url='http://video.unext.jp/freeword?query=%s') U-NEXTを検索
+            button(url='https://www.netflix.com/search?q=%s') Netflixを検索
+            button(url='https://www.amazon.co.jp/s/?url=search-alias%3Dinstant-video&field-keywords=%s') Amazonビデオを検索
+            button(url='https://www.happyon.jp/search?q=%s') Huluを検索
+            button(url='http://www.google.com/search?hl=ja&q=%s&btnI=I%27m+Feeling+Lucky') feeling lucky
+            button(url='https://www.google.co.jp/search?q=%s&tbm=isch') 画像検索
+            button(url='https://www.google.com/search?q=%s&hl=en') Google En
+            button(url='https://www.google.co.jp/maps/search/%s')    maps
+            button(url='https://twitter.com/search?s=follows&vertical=default&q=%s&src=typd') フォロー検索
+
+        #clock
+            p.time
+            p.date
+
+        script(src='scripts/main.min.js')
