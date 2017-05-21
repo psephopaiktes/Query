@@ -4,12 +4,16 @@
 ////////////////////////////////////////////////////////////////
 // show favicon
 $('#form ul button').each(function(){
-    var domain = $(this).attr('url').match(/^(.*?:\/\/)(.*?)([a-z0-9][a-z0-9\-]{1,63}\.[a-z\.]{2,6})[\:[0-9]*]?([\/].*?)?$/i);
-    console.log(domain);
-    domain = domain[2]+domain[3];
-    if(domain=='www.google.co.jp' || domain=='www.google.com')
-        domain = 'www.google.com';
-    $(this).prepend('<img src="http://www.google.com/s2/favicons?domain='+domain+'">');
+    if( $(this).attr('url') == '%s' ){
+        $(this).prepend('<img src="images/url.ico">');
+    }else{
+        var domain = $(this).attr('url').match(/^(.*?:\/\/)(.*?)([a-z0-9][a-z0-9\-]{1,63}\.[a-z\.]{2,6})[\:[0-9]*]?([\/].*?)?$/i);
+        // console.log(domain);
+        domain = domain[2]+domain[3];
+        if(domain=='www.google.co.jp' || domain=='www.google.com')
+            domain = 'google.com';
+        $(this).prepend('<img src="http://www.google.com/s2/favicons?domain='+domain+'">');
+    }
 });
 
 // start search
@@ -17,6 +21,7 @@ $('#form ul button').on('click',function(){
     var q = $('#form textarea').val();
     var url =$(this).attr('url').replace(/%s/g, q);
     location.href= url;
+    // console.log(url);
 });
 
 // Web Speech API
@@ -98,3 +103,21 @@ setInterval(function(){
     $('#clock .date').html( W+', '+M+'/'+D );
 
 }, 1000);
+// weather
+var apiKey = '58a0ba5dce685a8b6193c166e4c20bfd';
+if( navigator.geolocation ){
+
+    navigator.geolocation.getCurrentPosition(
+
+        function( position ){
+
+            var data = position.coords ;
+            var lat = data.latitude ;
+            var lng = data.longitude ;
+
+            // window.open('http://api.openweathermap.org/data/2.5/weather?lat='+lat+'&lon='+lng+'&APPID='+apiKey);
+            // window.open('http://api.openweathermap.org/data/2.5/forecast?lat='+lat+'&lon='+lng+'&APPID='+apiKey);
+        }
+    );
+}else{
+}

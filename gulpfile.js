@@ -43,7 +43,7 @@ gulp.task('sass', function() {
 
 //Js
 gulp.task('js', function() {
-    gulp.src(['./node_modules/jquery/docs/jquery.js','./src/scripts/**/*.js','!./src/scripts/lib'])
+    gulp.src(['./src/scripts/**/*.js','!./src/scripts/lib'])
         .pipe(plumber())
         .pipe(babel())
         .pipe(concat('main.min.js'))

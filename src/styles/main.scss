@@ -83,7 +83,7 @@ body{
     position: relative;
     &:hover{
         transform:translateY(-.1rem);
-        opacity: .9;
+        opacity: 1;
         box-shadow: 0 .1rem .4rem rgba(#000, 0.1);
     }
     &:active{
@@ -151,7 +151,9 @@ footer{
     width: 100vw;
     height: 12rem;
 }
-
+#weather{
+    color: #fff;
+}
 #clock{
     color: #ccc;
     font: 2.6rem/1.7 "Trebuchet Ms",Sans-Serif;
@@ -176,14 +178,14 @@ footer{
 
 .github{
     position: fixed;
-    bottom: 0; right: 1.8rem;
+    bottom: -.3rem; right: 1.8rem;
     img{
         wdith: 4rem;
         height: 4rem;
         opacity: .6;
     }
     &:hover img{
-        transform: scale(1.1);
+        transform: scale(1.05) translateY(-.3rem);
         opacity: 1;
     }
 }

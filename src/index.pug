@@ -17,15 +17,16 @@ html(lang='en')
             button(class='rec',onClick="record()"): i(class='material-icons') mic_none
             ul
                 li: button(url='https://www.google.com/search?q=%s') Google Search
-                li: button(url='https://translate.google.com/?#auto/ja/%s') Translate Japanese
-                li: button(url='https://translate.google.com/?#auto/en/%s') Translate English
+                li: button(url='%s') Move to Entered URL
+                li: button(url='https://translate.google.com/?#auto/ja/%s') Translate to Japanese
+                li: button(url='https://translate.google.com/?#auto/en/%s') Translate to English
                 li: button(url='http://video.unext.jp/freeword?query=%s') Search in U-NEXT
                 li: button(url='https://www.netflix.com/search?q=%s') Search in Netflix
                 li: button(url='https://www.amazon.co.jp/s/?url=search-alias%3Dinstant-video&field-keywords=%s') Search in Amazon Video
                 li: button(url='https://www.happyon.jp/search?q=%s') Search in Happyon
                 li: button(url='http://www.google.com/search?hl=ja&q=%s&btnI=I%27m+Feeling+Lucky') I'm Feeling Lucky
                 li: button(url='https://ja.wikipedia.org/w/?search=%s') Search in Wikipedia
-                li: button(url='https://twitter.com/search?s=follows&vertical=default&q=%s&src=typd') Search Tweets only Your Follows
+                li: button(url='https://twitter.com/search?q=%s&src=typd') Search in Twitter
                 li: button(url='https://www.google.com/search?q=%s&tbm=isch') Google Image Search
                 li: button(url='https://www.google.com/search?q=%s&hl=en') Google Search in English
                 li: button(url='https://www.google.co.jp/maps/search/%s') Search in Google Maps
@@ -36,13 +37,13 @@ html(lang='en')
                 li: button(url='https://www.tumblr.com/search/%s') Search in Tumblr
                 li: button(url='https://www.pixiv.net/search.php?word=%s') Search in Pixiv
 
-
-
         footer
+            #weather
             #clock
                     p.time: img(src='images/loader.svg')
                     p.date
             a(class='github', href='https://github.com/psephopaiktes/Query', target='brank_')
                 img(src='images/github.svg')
 
+        script(src='scripts/lib/jquery-3.1.1.slim.min.js')
         script(src='scripts/main.min.js')
