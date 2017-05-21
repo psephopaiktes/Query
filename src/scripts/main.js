@@ -104,20 +104,18 @@ setInterval(function(){
 
 }, 1000);
 // weather
-var apiKey = '58a0ba5dce685a8b6193c166e4c20bfd';
-if( navigator.geolocation ){
-
-    navigator.geolocation.getCurrentPosition(
-
-        function( position ){
-
-            var data = position.coords ;
-            var lat = data.latitude ;
-            var lng = data.longitude ;
-
-            // window.open('http://api.openweathermap.org/data/2.5/weather?lat='+lat+'&lon='+lng+'&APPID='+apiKey);
-            // window.open('http://api.openweathermap.org/data/2.5/forecast?lat='+lat+'&lon='+lng+'&APPID='+apiKey);
-        }
-    );
-}else{
-}
+// var apiKey = '58a0ba5dce685a8b6193c166e4c20bfd';
+// if( navigator.geolocation ){
+//
+//     navigator.geolocation.getCurrentPosition(
+//
+//         function( position ){
+//
+//             var data = position.coords ;
+//             var lat = data.latitude ;
+//             var lng = data.longitude ;
+//
+//             // window.open('http://api.openweathermap.org/data/2.5/weather?lat='+lat+'&lon='+lng+'&APPID='+apiKey);
+//         }
+//     );
+// }
