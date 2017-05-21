@@ -103,7 +103,9 @@ setInterval(function(){
     $('#clock .date').html( W+', '+M+'/'+D );
 
 }, 1000);
+
 // weather
+/*
 var apiKey = '58a0ba5dce685a8b6193c166e4c20bfd';
 if( navigator.geolocation ){
 
