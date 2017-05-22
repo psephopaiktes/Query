@@ -1,0 +1,35 @@
+@charset "utf-8";
+@import "reset";
+
+:root{ font-size: 62.5%; }
+$base: #f0f0f0;
+$main: #223;
+$acce: #FFC000;
+
+$HD: 1280px;
+$WQHD: 2560px;
+
+@mixin max($break) {
+    @media screen and (max-width: $break) { @content; }
+}
+
+@mixin min($break) {
+    @media screen and (min-width: $break) { @content; }
+}
+
+html{ background: $base; }
+body{
+    text-align: center;
+    font: 1.6rem/1.6 "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+*:hover{ transition: .2s ease; }
+
+////////////////////////////////////////////////////////////////
+// responsive
+////////////////////////////////////////////////////////////////
+@include max($HD) {
+    :root{ font-size: 50%; }
+}
+@include min($WQHD) {
+    :root{ font-size: 90%; }
+}

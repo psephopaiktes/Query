@@ -1,32 +1,5 @@
 @charset "utf-8";
-@import "reset";
-
-:root{ font-size: 62.5%; }
-$base: #f0f0f0;
-$main: #223;
-$acce: #FFC000;
-
-$mobile: 768px;
-$tablet: 1250px;
-
-@mixin max($break) {
-    @media screen and (max-width: $break) { @content; }
-}
-
-@mixin min($break) {
-    @media screen and (min-width: $break) { @content; }
-}
-
-html{ background: $base; }
-body{
-    text-align: center;
-    font: 1.2rem/1.7 "游ゴシック","Yu Gothic",YuGothic,"ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic ProN","ヒラギノ角ゴ ProN",Meiryo,"メイリオ",Helvetica,Arial,Sans-Serif;
-    font-weight: 500;
-    font-feature-settings : "pwid";
-    background: $base;
-}
-*:hover{ transition: .2s ease; }
-
+@import "config";
 
 ////////////////////////////////////////////////////////////////
 // FORM
@@ -56,12 +29,14 @@ body{
     height: 10rem;
     width: 100%;
     padding: 1rem 1.5rem;
+    &::placeholder { color: #ccc }
 }
 #form ul{
     counter-reset: key;
     list-style: none;
+    margin: 1rem 0 0;
     padding: 0;
-    height: 50rem;
+    height: calc(100vh - 36rem);
     overflow: scroll;
     &::-webkit-scrollbar {
       display: none;
@@ -129,12 +104,15 @@ body{
 #form li:nth-child(-n+9) button:after, #form .rec:after{
     background-color: rgba(#000,.1);
     height: 2rem;
-    width: 5rem;
+    width: 6rem;
+    line-height: 2rem;
+    font-size: 1.4rem;
     border-radius: .2rem;
     counter-increment: key;
     content:"alt + "counter(key);
     position: absolute;
     right: 1rem;
+    top: 1rem;
 }
 #form .rec:after{
     content: "alt + 0";
@@ -180,7 +158,7 @@ footer{
     position: fixed;
     bottom: -.3rem; right: 1.8rem;
     img{
-        wdith: 4rem;
+        width: 4rem;
         height: 4rem;
         opacity: .6;
     }
