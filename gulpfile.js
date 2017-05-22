@@ -38,6 +38,7 @@ gulp.task('sass', function() {
         .pipe(sourcemaps.write("./"))
         .pipe(gulp.dest('./docs/styles'));
     gulp.src('./src/styles/lib/**')
+        .pipe(plumber())
         .pipe(gulp.dest('./docs/styles/lib'));
 });
 
@@ -46,10 +47,12 @@ gulp.task('js', function() {
     gulp.src(['./src/scripts/**/*.js','!./src/scripts/lib'])
         .pipe(plumber())
         .pipe(babel())
-        .pipe(concat('main.min.js'))
+        // .pipe(concat('main.min.js'))
+        .pipe(rename({suffix: '.min'}))
         .pipe(uglify())
         .pipe(gulp.dest('./docs/scripts'));
     gulp.src('./src/scripts/lib/**')
+        .pipe(plumber())
         .pipe(gulp.dest('./docs/scripts/lib'));
 });
 
