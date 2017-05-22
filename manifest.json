@@ -1,5 +1,6 @@
 {
   "name": "Query",
+  "author": "Akira HIRATA",
   "description": "Override the new tab page",
   "version": "0.1",
   "icons": {
@@ -11,7 +12,7 @@
     "newtab": "docs/index.html"
   },
   "permissions": [
-    "bookmarks"
+    "storage"
   ],
   "options_page": "docs/options.html",
   "homepage_url": "https://github.com/psephopaiktes/Query",

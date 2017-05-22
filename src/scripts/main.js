@@ -1,4 +1,8 @@
 
+chrome.storage.sync.get("value1", function(items) {
+    // alert(items.value1);
+});
+
 ////////////////////////////////////////////////////////////////
 // FORM
 ////////////////////////////////////////////////////////////////
@@ -66,7 +70,12 @@ $(window).keydown(function(e){
             record();
         }
     }else if(e.keyCode === 13){
-        $('#form ul button:eq(0)').click();
+        // Enterが押された場合
+        if( $('#form textarea').val().match(/^(https?|ftp):\u002f\u002f.+$/) )
+            //URLが入力されていた場合
+            location.href = $('#form textarea').val();
+        else
+            $('#form ul button:eq(0)').click();
     }
 });
 $(window).keyup(function(e){
