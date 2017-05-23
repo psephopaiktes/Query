@@ -10,11 +10,21 @@ html(lang='en')
 
     body
 
-        input(type='text')
-        button() save
+        header
+            h1 Query
+            menu: ul
+                li: a(href='#') options
+                li: a(href='#') about query
+
+        .content#options
+            input(type='text')
+            button() save
+
+        .content#about
 
         footer
-            a(href='index.html') [x]
+            a(href='index.html'): i.material-icons close
+            p: small © Akira HIRATA 2017
 
         script(src='scripts/lib/jquery-3.1.1.slim.min.js')
         script(src='scripts/options.min.js')
