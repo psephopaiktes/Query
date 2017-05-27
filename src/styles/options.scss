@@ -29,15 +29,22 @@ footer{
     top: 1.6rem;
     left: 1.6rem;
     @include max(55em) {
-        top: 0;
-        left: 0;
+        width: 3rem;
+        height: 3rem;
+        top: .5rem;
+        left: .5rem;
     }
     i{
         line-height: 4rem;
         font-size: 3.6rem;
+        @include max(55em) {
+            line-height: 3rem;
+            font-size: 2.8rem;
+        }
     }
     &:hover{
         color: rgba(#000,.4);
+        transform: rotate(-90deg);
         background-color: rgba(#000,.1);
     }
 }

@@ -14,19 +14,27 @@ html(lang='en')
         header
             h1 Query
             menu: ul
-                li: a(href='#') options
-                li: a(href='#') about query
+                li: a(href='#options') options
+                li: a(href='#about') about query
+                li: a(href='#donation') donation
 
         .content#options
             input(type='text')
             button() save
 
         .content#about
+            h3 about
+            h3 links
+            h3 donation
+            h3 ReleaseNote
+
+        .content#donation
+            h3 rate Query
 
         footer
             a.github(href='https://github.com/psephopaiktes/Query',title='View on GitHub',target='brank_')
                 img(src='images/github.svg')
-            a.back(title='back',href='main.html'): i.material-icons arrow_back
+            a.back(title='back',href='main.html'): i.material-icons close
             p: small © Akira HIRATA 2017
 
 

@@ -11,8 +11,6 @@ html(lang='en')
 
     body
 
-        script(src='scripts/analytics.min.js')
-
         //- #tips
         //-     .cover
         //-     .modal
@@ -23,7 +21,7 @@ html(lang='en')
 
         #form
             textarea(autofocus='autofocus',placeholder=' input Query',tabindex='1')
-            button.rec(onClick="record()",tabindex='-1')
+            button.rec(tabindex='-1')
                 i.material-icons mic_none
             ul
                 li: button(url='https://www.google.com/search?q=%s') Google Search

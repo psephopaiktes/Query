@@ -3,14 +3,10 @@ var pug = require('gulp-pug');
 var plumber = require('gulp-plumber');
 var sass = require('gulp-sass');
 var rename = require('gulp-rename');
-var concat = require("gulp-concat");
-var autoprefixer = require('gulp-autoprefixer');
 var uglify = require('gulp-uglify');
 var imagemin = require('gulp-imagemin');
 var cache = require('gulp-cache');
-var browserSync = require("browser-sync");
 var cmq = require("gulp-combine-mq");
-var babel = require("gulp-babel");
 var sourcemaps = require("gulp-sourcemaps");
 
 
@@ -29,10 +25,6 @@ gulp.task('sass', function() {
         .pipe(plumber())
         .pipe(sourcemaps.init())
         .pipe(sass({outputStyle: 'compressed'}))
-        .pipe(autoprefixer({
-            browsers: ['last 2 versions', 'ie >= 9', 'Android >= 4','ios_saf >= 8'],
-            cascade: false
-        }))
         .pipe(cmq({ beautify: false }))
         .pipe(rename({suffix: '.min'}))
         .pipe(sourcemaps.write("./"))
@@ -46,8 +38,6 @@ gulp.task('sass', function() {
 gulp.task('js', function() {
     gulp.src(['./src/scripts/**/*.js','!./src/scripts/lib'])
         .pipe(plumber())
-        .pipe(babel())
-        // .pipe(concat('main.min.js'))
         .pipe(rename({suffix: '.min'}))
         .pipe(uglify())
         .pipe(gulp.dest('./docs/scripts'));
@@ -63,17 +53,10 @@ gulp.task('img', function() {
         .pipe(gulp.dest('./docs/images'));
 });
 
-//reload
-gulp.task('reload', function() {
-    browserSync.reload();
-});
-
 
 gulp.task('default',['pug','sass','js','img'],function(){
-    browserSync.init({ server: "./docs" });
     gulp.watch('./src/**/*.pug', ['pug']);
     gulp.watch('./src/styles/**/*.scss', ['sass']);
     gulp.watch('./src/scripts/**/*.js',['js']);
     gulp.watch('./src/images/**/*',['img']);
-    gulp.watch('./src/**',['reload']); //Atomでリロードさせるならいらないかも
 });

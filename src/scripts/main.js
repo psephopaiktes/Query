@@ -1,7 +1,6 @@
-
-chrome.storage.sync.get("value1", function(items) {
+// chrome.storage.sync.get("value1", function(items) {
     // alert(items.value1);
-});
+// });
 
 ////////////////////////////////////////////////////////////////
 // FORM
@@ -30,25 +29,26 @@ $('#form ul button').on('click',function(){
 
 // Web Speech API
 window.SpeechRecognition = window.SpeechRecognition || webkitSpeechRecognition;
-var recognition = new webkitSpeechRecognition();
-recognition.lang = 'ja';
-recognition.interimResults = true;
+var rec = new webkitSpeechRecognition();
+rec.lang = 'ja';
+rec.interimResults = true;
 // 開始用関数
 function record(){
-    recognition.start();
+    rec.start();
     $('#form .rec').html('<i class="material-icons">mic</i>')
 }
+$('#form .rec').on('click',function(){ record(); });
 // 入力中の処理
-recognition.onsoundstart = function(){
+rec.onsoundstart = function(){
     $('#form .rec').html('<i class="material-icons inputting">mic</i>')
 };
-recognition.onnomatch = function(){ $('#form .rec').html('try again') };
-recognition.onerror= function(){ $('#form .rec').html('error') };
-recognition.onsoundend = function(){
+rec.onnomatch = function(){ $('#form .rec').html('try again') };
+rec.onerror= function(){ $('#form .rec').html('error') };
+rec.onsoundend = function(){
     $('#form .rec').html('<i class="material-icons">mic_none</i>')
 };
 // 入力処理
-recognition.onresult = function(event){
+rec.onresult = function(event){
     var results = event.results;
     for (var i = event.resultIndex; i<results.length; i++){
         if(results[i].isFinal)
