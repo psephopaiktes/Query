@@ -4,9 +4,9 @@ html(lang='en')
     head
         title Query
         meta(charset='utf-8')
+        link(rel='stylesheet', href='https://fonts.googleapis.com/icon?family=Material+Icons')
         link(rel='stylesheet', href='styles/main.min.css')
         link(rel='shortcut icon', href='images/favicon.ico')
-        link(rel='stylesheet', href='https://fonts.googleapis.com/icon?family=Material+Icons')
         script(src='scripts/analytics.min.js')
 
     body
@@ -18,19 +18,13 @@ html(lang='en')
         //-         p: ol
         //-             li aaa
         //-         button got it
-        ul#chrome-link
-            li: a(href='settings'): i.material-icons settings
-            li: a(href='history'): i.material-icons history
-            li: a(href='extensions'): i.material-icons extension
-            li: a(href='bookmarks'): i.material-icons star
-            li: a(href='downloads'): i.material-icons file_download
-            li: a(href='apps'): i.material-icons apps
+
         #form
             textarea(autofocus='autofocus',placeholder=' input Query',tabindex='1')
             button.rec(tabindex='-1')
                 i.material-icons mic_none
             ul
-                li: button(url='https://www.google.com/search?q=%s') Google Search
+                li: button(url='https://www.google.com/search?q=%s') Google Search Search Search Search Search
                 li: button(url='%s') Move to Entered URL
                 li: button(url='https://translate.google.com/?#auto/ja/%s') Translate to Japanese
                 li: button(url='https://translate.google.com/?#auto/en/%s') Translate to English
@@ -51,13 +45,38 @@ html(lang='en')
                 li: button(url='https://www.tumblr.com/search/%s') Search in Tumblr
                 li: button(url='https://www.pixiv.net/search.php?word=%s') Search in Pixiv
 
+        ul.menu
+            li.options: a(title='Options', href='options.html')
+                i.material-icons settings
+            li#chrome-link
+                a(href='#'): i.material-icons view_headline
+                ul
+
+                    li: a(href='settings')
+                        i.material-icons settings
+                        | settings
+                    li: a(href='history')
+                        i.material-icons history
+                        | history
+                    li: a(href='extensions')
+                        i.material-icons extension
+                        | extensions
+                    li: a(href='bookmarks')
+                        i.material-icons star
+                        | bookmarks
+                    li: a(href='downloads')
+                        i.material-icons file_download
+                        | downloads
+                    li: a(href='apps')
+                        i.material-icons apps
+                        | apps
+
+
         footer
             #weather
             #clock
                 p.time: img(src='images/loader.svg')
                 p.date
-            a.options(title='Options', href='options.html')
-                i.material-icons settings
 
         script(src='scripts/lib/jquery-3.1.1.slim.min.js')
         script(src='scripts/main.min.js')

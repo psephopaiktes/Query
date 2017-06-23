@@ -4,9 +4,9 @@ html(lang='en')
     head
         title Options
         meta(charset='utf-8')
+        link(rel='stylesheet', href='https://fonts.googleapis.com/icon?family=Material+Icons')
         link(rel='stylesheet', href='styles/options.min.css')
         link(rel='shortcut icon', href='images/favicon.ico')
-        link(rel='stylesheet', href='https://fonts.googleapis.com/icon?family=Material+Icons')
         script(src='scripts/analytics.min.js')
 
     body
@@ -31,10 +31,13 @@ html(lang='en')
         .content#donation
             h3 rate Query
 
+        ul.menu
+            li.close: a(title='close', href='main.html')
+                i.material-icons close
+
         footer
             a.github(href='https://github.com/psephopaiktes/Query',title='View on GitHub',target='brank_')
                 img(src='images/github.svg')
-            a.back(title='back',href='main.html'): i.material-icons close
             p: small © Akira HIRATA 2017
 
 

@@ -2,43 +2,45 @@
 @import "config";
 
 #chrome-link{
-    display: none;
 }
 
 // なんか暗いからもっと明るいデザインに !
-#tips .cover{
-    content: "";
-    z-index: 999;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(#000,.2);
-    position: fixed;
-    top: 0;
-    left: 0;
-}
-#tips .modal{
-    z-index: 1000;
-    padding: 1rem 2rem;
-    position: fixed;
-    width: 60em;
-    left:calc(50vw - 30em);
-    @include max(60em) {
-        width: 90%;
-        left: 5%;
-    }
-    height: 50vh;
-    top: 20vh;
-    background-color: rgba(#fff,.9);
-    box-shadow: 1px 2px 12px rgba(#000,.4);
-    border-radius: 6px;
-    i{
-    }
-    kbd{
-        border: .1rem solid #fff;
-        border-radius: .2rem;
-        padding: .2rem .4rem;
-    }
-}
+// #tips .cover{
+//     content: "";
+//     z-index: 999;
+//     width: 100vw;
+//     height: 100vh;
+//     background-color: rgba(#000,.2);
+//     position: fixed;
+//     top: 0;
+//     left: 0;
+// }
+// #tips .modal{
+//     z-index: 1000;
+//     padding: 1rem 2rem;
+//     position: fixed;
+//     width: 60em;
+//     left:calc(50vw - 30em);
+//     @include max(60em) {
+//         width: 90%;
+//         left: 5%;
+//     }
+//     height: 50vh;
+//     top: 20vh;
+//     background-color: rgba(#fff,.9);
+//     box-shadow: 1px 2px 12px rgba(#000,.4);
+//     border-radius: 6px;
+//     i{
+//     }
+//     kbd{
+//         border: .1rem solid #fff;
+//         border-radius: .2rem;
+//         padding: .2rem .4rem;
+//     }
+// }
+
+
+
 
 ////////////////////////////////////////////////////////////////
 // FORM
@@ -71,8 +73,10 @@
     &::placeholder { color: #ccc }
 }
 #form ul{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
     counter-reset: key;
-    list-style: none;
     margin: 1rem 0 0;
     padding: 0;
     height: calc(100vh - 36rem);
@@ -81,13 +85,20 @@
       display: none;
     }
 }
+#form li{
+    width: calc( 50% - .8rem );
+    @include max(55em) { width: 100% }
+}
 #form button:not(.rec){
     display: block;
     outline: none;
     width: 100%;
     height: 4.2rem;
     margin: 1rem auto 0;
-    padding: 0;
+    padding: 0 8rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
     cursor: pointer;
     border: 0;
     border-radius: .2rem;
@@ -161,6 +172,87 @@
     top: .5rem;
 }
 
+
+
+////////////////////////////////////////////////////////////////
+// menu
+////////////////////////////////////////////////////////////////
+.menu{
+    position: fixed;
+    top: 1rem;
+    right: 2rem;
+    display: flex;
+    flex-direction: row-reverse;
+    @include max(55em){
+        top: 2rem;
+        right: 1rem;
+        flex-direction: column;
+    }
+    >li>a{
+        display: block;
+        width: 4rem;
+        height: 4rem;
+        border-radius: 50%;
+        color: rgba(#000,.2);
+        @include max(55em) {
+            width: 3rem;
+            height: 3rem;
+        }
+        i{
+            line-height: 4rem;
+            font-size: 3rem;
+            @include max(55em) {
+                line-height: 3rem;
+                font-size: 2.4rem;
+            }
+        }
+    }
+}
+.options a:hover{
+    color: rgba(#000,.4);
+    transform: rotate(-60deg);
+    background-color: rgba(#000,.1);
+}
+#chrome-link{
+    position: relative;
+    ul{
+        display: none;
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: #fff;
+        padding: 0;
+        margin: 0;
+        width: 20rem;
+        z-index: 200;
+        box-shadow: 4px 6px 24px rgba(#000,.2);
+        border-radius: 3px;
+        a{
+            display: block;
+            text-align: left;
+            padding-left: 3rem;
+            width: 20rem;
+            height: 6rem;
+            line-height: 6rem;;
+            color: rgba(#000,.6);
+            text-decoration: none;
+            border-radius: 3px;
+            &:hover{
+                background-color: rgba(#000,.1);
+            }
+        }
+        a i{
+            vertical-align: middle;
+            margin-right: 2rem;
+        }
+    }
+    &:hover ul{
+        display: block;
+    }
+}
+
+
+
 ////////////////////////////////////////////////////////////////
 // Footer
 ////////////////////////////////////////////////////////////////
@@ -191,35 +283,5 @@ footer{
     }
     .date{
         font-size: 1.7rem;
-    }
-}
-
-.options{
-    display: block;
-    width: 4rem;
-    height: 4rem;
-    border-radius: 50%;
-    color: rgba(#000,.2);
-    position: fixed;
-    top: 1.6rem;
-    left: 1.6rem;
-    @include max(55em) {
-        width: 3rem;
-        height: 3rem;
-        top: .5rem;
-        left: .5rem;
-    }
-    i{
-        line-height: 4rem;
-        font-size: 3.6rem;
-        @include max(55em) {
-            line-height: 3rem;
-            font-size: 2.8rem;
-        }
-    }
-    &:hover{
-        color: rgba(#000,.4);
-        transform: rotate(-60deg);
-        background-color: rgba(#000,.1);
     }
 }
