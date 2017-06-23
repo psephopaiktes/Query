@@ -1,6 +1,10 @@
 @charset "utf-8";
 @import "config";
 
+#chrome-link{
+    display: none;
+}
+
 // なんか暗いからもっと明るいデザインに !
 #tips .cover{
     content: "";
