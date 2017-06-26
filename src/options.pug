@@ -5,6 +5,7 @@ html(lang='en')
         title Options
         meta(charset='utf-8')
         link(rel='stylesheet', href='https://fonts.googleapis.com/icon?family=Material+Icons')
+        link(rel='stylesheet', href='styles/lib/jquery-ui.min.css.min.css')
         link(rel='stylesheet', href='styles/options.min.css')
         link(rel='shortcut icon', href='images/favicon.ico')
         script(src='scripts/analytics.min.js')
@@ -13,19 +14,39 @@ html(lang='en')
 
         header
             h1 Query
-            menu: ul
+            nav: ul
                 li: a(href='#options') options
                 li: a(href='#about') about query
                 li: a(href='#donation') donation
 
         .content#options
-            input(type='text')
-            button() save
+            ul#userQuerys
+                li
+                    i.material-icons sort
+                    input(name='queryName',type='text',placeholder='e.g.) serch in google')
+                    input(name='queryUrl',type='text',placeholder='e.g.) https://www.google.com/search?q=%s')
+                    button.del: i.material-icons delete
+                li
+                    i.material-icons sort
+                    input(name='queryName',type='text',placeholder='e.g.) serch in google')
+                    input(name='queryUrl',type='text',placeholder='e.g.) https://www.google.com/search?q=%s')
+                    button.del: i.material-icons delete
+                li
+                    i.material-icons sort
+                    input(name='queryName',type='text',placeholder='e.g.) serch in google')
+                    input(name='queryUrl',type='text',placeholder='e.g.) https://www.google.com/search?q=%s')
+                    button.del: i.material-icons delete
+
+            ul#defaultQuerys
+                li
+                    i.material-icons sort
+                    input(name='queryName',type='text',placeholder='e.g.) serch in google')
+                    input(name='queryUrl',type='text',placeholder='e.g.) https://www.google.com/search?q=%s')
+                    button.del: i.material-icons delete
 
         .content#about
             h3 about
             h3 links
-            h3 donation
             h3 ReleaseNote
 
         .content#donation
@@ -42,4 +63,5 @@ html(lang='en')
 
 
         script(src='scripts/lib/jquery-3.1.1.slim.min.js')
+        script(src='scripts/lib/jquery-ui.min.js')
         script(src='scripts/options.min.js')
