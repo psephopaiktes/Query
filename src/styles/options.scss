@@ -40,7 +40,43 @@
 .close a:hover{
     color: rgba(#000,.4);
     transform: rotate(-90deg);
-    background-color: rgba(#000,.1);
+    background: rgba(#000,.1);
+}
+
+
+
+////////////////////////////////////////////////////////////////
+// Options Area
+////////////////////////////////////////////////////////////////
+#userQuerys,#defaultQuerys{
+    padding: 0;
+    margin: 0 auto;
+    width: 96rem;
+    background: #fff;
+    box-shadow: 1px 1px 6px rgba(#000,.1) inset;
+    border: 1px solid darken($base,2%);
+    padding: 20px;
+    li{
+        background: $base;
+        border-radius: .6rem;
+        box-shadow: 1px 1px 6px rgba(#000,.1);
+        border: 1px solid darken($base,2%);
+    }
+    li+li{
+        margin: 2rem 0;
+    }
+    li i{
+        cursor: move;
+    }
+    input{
+        border: 0;
+        background: #fff;
+        outline: none;
+        &:focus{ background: #ccc; }
+    }
+    button{
+        border: 0;
+    }
 }
 
 
@@ -49,7 +85,7 @@
 // Footer
 ////////////////////////////////////////////////////////////////
 footer{
-    background-color: $main;
+    background: $main;
     position: fixed;
     bottom: 0;
     width: 100vw;

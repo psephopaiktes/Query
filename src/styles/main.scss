@@ -10,7 +10,7 @@
 //     z-index: 999;
 //     width: 100vw;
 //     height: 100vh;
-//     background-color: rgba(#000,.2);
+//     background: rgba(#000,.2);
 //     position: fixed;
 //     top: 0;
 //     left: 0;
@@ -27,7 +27,7 @@
 //     }
 //     height: 50vh;
 //     top: 20vh;
-//     background-color: rgba(#fff,.9);
+//     background: rgba(#fff,.9);
 //     box-shadow: 1px 2px 12px rgba(#000,.4);
 //     border-radius: 6px;
 //     i{
@@ -63,7 +63,7 @@
 #form textarea{
     resize: none;
     display: block;
-    background-color: #fff;
+    background: #fff;
     outline: none;
     border: 0;
     border-radius: .3rem .3rem 0 0;
@@ -102,7 +102,7 @@
     cursor: pointer;
     border: 0;
     border-radius: .2rem;
-    background-color: #fff;
+    background: #fff;
     color: $main;
     opacity: .8;
     position: relative;
@@ -118,7 +118,7 @@
         transition-duration: 0.1s;
     }
     &:focus{
-        background-color: $acce;
+        background: $acce;
     }
 }
 #form li:last-child button{
@@ -141,7 +141,7 @@
     border: 0;
     border-top: 1px solid #f0f0f0;
     border-radius: 0 0 .3rem .3rem;
-    background-color: #fff;
+    background: #fff;
     padding: 0;
     color: $main;
     opacity: .7;
@@ -155,7 +155,7 @@
 }
 // 1~9番目のボタンまでショートカットを表示
 #form li:nth-child(-n+9) button:after, #form .rec:after{
-    background-color: rgba(#000,.1);
+    background: rgba(#000,.1);
     height: 2rem;
     width: 6rem;
     line-height: 2rem;
@@ -211,7 +211,7 @@
 .options a:hover{
     color: rgba(#000,.4);
     transform: rotate(-60deg);
-    background-color: rgba(#000,.1);
+    background: rgba(#000,.1);
 }
 #chrome-link{
     position: relative;
@@ -220,7 +220,7 @@
         position: absolute;
         top: 0;
         right: 0;
-        background-color: #fff;
+        background: #fff;
         padding: 0;
         margin: 0;
         width: 20rem;
@@ -238,7 +238,7 @@
             text-decoration: none;
             border-radius: 3px;
             &:hover{
-                background-color: rgba(#000,.1);
+                background: rgba(#000,.1);
             }
         }
         a i{
@@ -257,7 +257,7 @@
 // Footer
 ////////////////////////////////////////////////////////////////
 footer{
-    background-color: $main;
+    background: $main;
     position: fixed;
     bottom: 0;
     width: 100vw;
