@@ -1,6 +1,8 @@
 // chrome.storage.sync.get("value1", function(items) {
     // alert(items.value1);
 // });
+console.log( chrome.i18n.getMessage("locale") );
+console.log( chrome.i18n.getMessage("test") );
 
 $('#chrome-link a').on('click',function(){
     chrome.tabs.update({ url: 'chrome://'+$(this).attr('href') });

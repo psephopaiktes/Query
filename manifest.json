@@ -3,7 +3,8 @@
   "author": "Akira HIRATA",
   "version": "0.5.0",
   "manifest_version": 2,
-  "description": "Override the new tab page",
+  "description": "__MSG_extDescription__",
+  "default_locale": "en",
   "icons": {
     "16": "docs/images/icon16.png",
     "48": "docs/images/icon48.png",
