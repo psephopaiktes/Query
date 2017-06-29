@@ -49,33 +49,63 @@
 // Options Area
 ////////////////////////////////////////////////////////////////
 #userQuerys,#defaultQuerys{
-    padding: 0;
     margin: 0 auto;
     width: 96rem;
     background: #fff;
-    box-shadow: 1px 1px 6px rgba(#000,.1) inset;
+    box-shadow: 1px 1px 4px rgba(#000,.1) inset;
     border: 1px solid darken($base,2%);
-    padding: 20px;
+    padding: 2rem;
     li{
-        background: $base;
-        border-radius: .6rem;
-        box-shadow: 1px 1px 6px rgba(#000,.1);
-        border: 1px solid darken($base,2%);
-    }
-    li+li{
-        margin: 2rem 0;
-    }
-    li i{
-        cursor: move;
-    }
-    input{
-        border: 0;
         background: #fff;
-        outline: none;
-        &:focus{ background: #ccc; }
+        border-radius: .6rem;
+        // box-shadow: 1px 1px 6px rgba(#000,.1);
+        border: 1px solid darken($base,2%);
+        position: relative;
+        height: 5rem;
+        &+li{ margin-top: 2rem }
+        &:active{
+            box-shadow: 1px 2px 6px rgba(#000,.1);
+            transform: translateY(-1px);
+            transform: translateX(-1px);
+        }
     }
-    button{
+    li .sort{
+        cursor: move;
+        position: absolute;
+        display: inline-block;
+        width: 5rem;
+        height: 5rem;
+        line-height: 5rem;
+        left: 0;
+        color: $base;
+    }
+    li input{
         border: 0;
+        background: #f0f0f0;
+        outline: none;
+        display: inline-block;
+        width: 36rem;
+        height: 3rem;
+        line-height: 3rem;
+        margin: 1rem .5rem;
+        padding: 0 1rem;
+        &:focus{ background: #dfdfdf; }
+    }
+    li .del{
+        cursor: pointer;
+        position: absolute;
+        display: inline-block;
+        width: 5rem;
+        height: 5rem;
+        line-height: 6rem;
+        right: 0;
+        color: $base;
+        border: 0;
+        outline: 0;
+        &:hover{
+            background-color: #f0f0f0;
+            color: #f00;
+        }
     }
 }
 
