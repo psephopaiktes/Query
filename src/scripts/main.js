@@ -97,26 +97,16 @@ $(window).keyup(function(e){
 // footer
 ////////////////////////////////////////////////////////////////
 // clock
-var day = new Array("Sun","Mon","Thu","Wed","Thr","Fri","Sat");
+
+var date = { weekday: 'short', year: 'numeric', month: '2-digit', day: '2-digit' };
+var time = { hour: '2-digit', minute: '2-digit', second: '2-digit' };
+
+// $('#clock .date').html( Intl.DateTimeFormat('en-US', date).format( new Date() ) );
+$('#clock .date').html( Intl.DateTimeFormat('ja-JP', date).format( new Date() ) );
+
 setInterval(function(){
-
-    var now = new Date();
-    var M = now.getMonth() + 1;
-    var D = now.getDate();
-    var W = day[now.getDay()];
-    var h = now.getHours();
-    var m = now.getMinutes();
-    var s = now.getSeconds();
-
-    if(M<10) M = "0" + M;
-    if(D<10) D = "0" + D;
-    if(h<10) h = "0" + h;
-    if(m<10) m = "0" + m;
-    if(s<10) s = "0" + s;
-
-    $('#clock .time').html( h+':'+m+':'+s );
-    $('#clock .date').html( W+', '+M+'/'+D );
-
+    // $('#clock .time').html( Intl.DateTimeFormat('en-US', time).format( new Date() ) );
+    $('#clock .time').html( Intl.DateTimeFormat('ja-JP', time).format( new Date() ) );
 }, 1000);
 
 // weather
